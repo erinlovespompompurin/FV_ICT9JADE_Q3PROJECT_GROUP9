@@ -60,7 +60,7 @@ body{
 }
 
 input{
-    border-radius: 10px;
+    border-radius: 10px ;
 }
 
 footer{
@@ -125,12 +125,12 @@ footer{
 
                 <div class="mb-3">
                     <label class="form-label fw-bold fs-5">PICK-UP LOCATION:</label>
-                    <input type="text" id="pickup" class="form-control" placeholder="Enter location">
+                    <input type="number" id="pickup" class="form-control" placeholder="Enter station number">
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label fw-bold fs-5">DROP-OFF LOCATION:</label>
-                    <input type="text" id="dropoff" class="form-control" placeholder="Enter location">
+                    <input type="number" id="dropoff" class="form-control" placeholder="Enter station number">
                 </div>
 
                 <button class="btn btn-yellow me-2" onclick="calculateFare()">
@@ -154,27 +154,56 @@ footer{
 
     </div>
 </div>
-    
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <footer class="text-center text-white">
     Erin Rioflorido, Erin Urbano and Maryonne Valera | 9 Jade ©2026
 </footer>
 
 <script>
+// REGULAR FARE
 function calculateFare(){
-    let baseFare = 250;
-    document.getElementById("fareDisplay").innerHTML = baseFare.toFixed(2);
+    let pickup = parseFloat(document.getElementById("pickup").value);
+    let dropoff = parseFloat(document.getElementById("dropoff").value);
+
+    let baseFare = 50;
+    let perKMrate = 15;
+    let baseKM = 2;
+
+    if (isNaN(pickup) || isNaN(dropoff)) {
+        document.getElementById("fareDisplay").innerHTML = "Enter valid numbers";
+        return;
+    }
+
+    let distance = Math.max(Math.abs(dropoff - pickup), 0);
+    let extraKM = Math.max(distance - baseKM, 0);
+    let fare = baseFare + extraKM * perKMrate;
+
+    document.getElementById("fareDisplay").innerHTML = fare.toFixed(2);
 }
 
+// DISCOUNTED FARE (20% OFF)
 function calculateDiscount(){
-    let baseFare = 250;
-    let discounted = baseFare * 0.20;
-    let finalFare = baseFare - discounted;
-    document.getElementById("fareDisplay").innerHTML = finalFare.toFixed(2);
+    let pickup = parseFloat(document.getElementById("pickup").value);
+    let dropoff = parseFloat(document.getElementById("dropoff").value);
+
+    let baseFare = 50;
+    let perKMrate = 15;
+    let baseKM = 2;
+
+    if (isNaN(pickup) || isNaN(dropoff)) {
+        document.getElementById("fareDisplay").innerHTML = "Enter valid numbers";
+        return;
+    }
+
+    let distance = Math.max(Math.abs(dropoff - pickup), 0);
+    let extraKM = Math.max(distance - baseKM, 0);
+    let fare = baseFare + extraKM * perKMrate;
+
+    fare = fare * 0.80; // 20% discount
+
+    document.getElementById("fareDisplay").innerHTML = fare.toFixed(2);
 }
 </script>
-
-
 
 </body>
 </html>

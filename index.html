@@ -160,7 +160,6 @@ footer{
 </footer>
 
 <script>
-// REGULAR FARE
 function calculateFare(){
     let pickup = parseFloat(document.getElementById("pickup").value);
     let dropoff = parseFloat(document.getElementById("dropoff").value);
@@ -181,7 +180,6 @@ function calculateFare(){
     document.getElementById("fareDisplay").innerHTML = fare.toFixed(2);
 }
 
-// DISCOUNTED FARE (20% OFF)
 function calculateDiscount(){
     let pickup = parseFloat(document.getElementById("pickup").value);
     let dropoff = parseFloat(document.getElementById("dropoff").value);
@@ -199,7 +197,7 @@ function calculateDiscount(){
     let extraKM = Math.max(distance - baseKM, 0);
     let fare = baseFare + extraKM * perKMrate;
 
-    fare = fare * 0.80; // 20% discount
+    fare = fare * 0.80; 
 
     document.getElementById("fareDisplay").innerHTML = fare.toFixed(2);
 }

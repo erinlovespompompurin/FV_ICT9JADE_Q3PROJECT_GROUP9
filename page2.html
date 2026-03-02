@@ -3,39 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title></title>
+    <title>Create Account</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-    <style>
-         body{
-        background-image: url("https://www.crownasia.com.ph/wp-content/uploads/2023/08/Impacts-of-Worsening-Traffic-to-Daily-Commuters.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        color: white;
-    }
 
-    .navbar{
-        background-color: #264b18e6;
-    }
+<style>
+body{
+    background-image: url("https://www.crownasia.com.ph/wp-content/uploads/2023/08/Impacts-of-Worsening-Traffic-to-Daily-Commuters.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
 
-    footer{
+.navbar{
+    background-color: #264b18e6;
+}
+
+footer{
     margin-top: 50px;
     padding: 15px;
     background-color: #112702;
 }
 
-    .form-box {
-         background-color: #264b18e6;
-    }
+.form-box {
+    background-color: #264b18e6;
+    padding: 40px 30px;
+}
 
 
-    </style>
+.title-banner{
+     background-color: #112702;
+    padding: 10px 30px;
+    border-radius: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fca311;
+}
+</style>
+</head>
+
 <body>
-    
-   <nav class="navbar navbar-expand-lg navbar-dark px-4">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark px-4">
     <div class="container-fluid">
-        
+
         <a class="navbar-brand text-warning fw-bold" href="#">
             RUV Express
         </a>
@@ -51,7 +64,7 @@
                     <a class="nav-link text-white" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a nav-link href=q3proj.html class="nav-link text-white" href="#">Fare Matrix</a>
+                    <a class="nav-link text-white" href="q3proj.html">Fare Matrix</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Schedule</a>
@@ -69,71 +82,69 @@
         </div>
     </div>
 </nav>
-    <br><br>
-    <div class="container text-light rounded text-center" style="height: 1000px; width: 550px; background-color: #264b18e6;">
 
-    <h1 class="fw-bold display-4 fst-italic">Registration</h1>
 
-     <details class="ontoggle">
+
+<br><br>
+
+<div class="container form-box text-light rounded text-center" style="width: 550px;">
+
+    <div class="text-center mb-4">
+        <div class="title-banner">
+            RUV Express Registration
+        </div>
+    </div>
+
+    <details>
         <summary>Instructions:</summary>
-        <p id="Instructions"></p>
-
-        Please fill out the following information, once done, submit your Registration
+        <p>Please fill out the following information. Once done, submit your registration.</p>
     </details>
+
     <br>
 
-    <div id="form-box">
+    <form action="">
 
-    <form action ="">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwcN6Fhpv8LHukN1_YnH11ZbXDKNK6Ax6LXg&s"
+             alt="Profile Picture" width="150" height="150">
 
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwcN6Fhpv8LHukN1_YnH11ZbXDKNK6Ax6LXg&s" alt="Profile Picture" width="150" height="150">
-      <br><br>
-      <input type="file" class="form-control rounded" id = "" name = "" size="40">
-      <br>
+        <br><br>
 
-        <label for = "">Name: </label>
-        <br>
-        <input type = "text" class="form-control rounded" id = "" name = "" placeholder = "Add your name:" size="40">
+        <input type="file" class="form-control rounded">
         <br>
 
-        <label for = "">Email:</label>
+        <label>Name:</label>
+        <input type="text" class="form-control rounded" placeholder="Add your name:">
         <br>
-        <input type = "text" class="form-control rounded" id = "Email" name = "Email" placeholder = "Your Email:" size="40">
+
+        <label>Email:</label>
+        <input type="email" class="form-control rounded" placeholder="Your Email:">
         <br>
 
         <div class="row">
-          <div class="col-6">
-            <label>Age:</label>
-          <br>
-             <input type= "number" id= "age" name= "age" placeholder= "Add your Age:" class= "form-control rounded">
+            <div class="col-6">
+                <label>Age:</label>
+                <input type="number" placeholder="Add your Age:" class="form-control rounded">
+            </div>
+
+            <div class="col-6">
+                <label>Contact Number:</label>
+                <input type="text" placeholder="Add your Contact Number:" class="form-control rounded">
+            </div>
         </div>
 
-        <div class="col-6">
-             <label>Contact Number:</label>
-          <br>
-              <input type="Contactnumber" id= "Contact" name= "Contact" placeholder= "Add your Contact Number:" class= "form-control rounded">
-             </div>
-          </div>
-
         <br>
 
-
-        <label for = "">Username: </label>
-        <br>
-        <input type = "text" id = "" name = "" placeholder = "Add your Username:" class="form-control rounded" size="40">
+        <label>Username:</label>
+        <input type="text" placeholder="Add your Username:" class="form-control rounded">
         <br>
 
-        <label for = "">Password:</label>
-        <br>
-        <input type = "text" id = "Email" name = "Email" placeholder = "Your Password:" class="form-control rounded" size="40">
-        <br>
-      
+        <label>Password:</label>
+        <input type="password" placeholder="Your Password:" class="form-control rounded">
         <br><br>
 
         <div class="row">
-          <div class="col-6">
-
-        <input type="reset" id="reset" name="reset" value="Clear all" class="form-control rounded text-center">
+            <div class="col-6">
+                <input type="reset" id="reset" name="reset" value="Clear all" class="form-control rounded text-center">
         </div>
         
           <div class="col-6">
@@ -141,20 +152,15 @@
             </div>
         </form>
          </div>
-            
-        </div>
-        </div></div>
-   
 
-</div>
-</div>
 
-</div>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <footer class="text-center text-white">
     Erin Rioflorido, Erin Urbano and Maryonne Valera | 9 Jade ©2026
 </footer>
+
+</div>
 
 </body>
 </html>

@@ -87,18 +87,10 @@ footer{
         <div class="collapse navbar-collapse" id="navbarContent">
 
             <ul class="navbar-nav ms-3">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Fare Matrix</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Schedule</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Help</a>
-                </li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Fare Matrix</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Schedule</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Help</a></li>
             </ul>
 
             <div class="ms-auto">
@@ -179,13 +171,8 @@ footer{
                     </select>
                 </div>
 
-                <button class="btn btn-yellow me-2" onclick="calculateFare()">
-                    Regular Fare
-                </button>
-
-                <button class="btn btn-darkblue" onclick="calculateDiscount()">
-                    Discounted Fare
-                </button>
+                <button class="btn btn-yellow me-2" onclick="calculateFare()">Regular Fare</button>
+                <button class="btn btn-darkblue" onclick="calculateDiscount()">Discounted Fare</button>
 
             </div>
 
@@ -200,30 +187,33 @@ footer{
 
     </div>
 </div>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br>
 
-<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br><br></br>
 <footer class="text-center text-white">
     Erin Rioflorido, Erin Urbano and Maryonne Valera | 9 Jade ©2026
 </footer>
 
 <script>
+const baseFare = 70;
+const perKMrate = 25;
+const baseKM = 2;
+
+function computeFare(pickup, dropoff){
+    let distance = Math.abs(dropoff - pickup);
+    let extraKM = Math.max(distance - baseKM, 0);
+    return baseFare + extraKM * perKMrate;
+}
+
 function calculateFare(){
     let pickup = parseFloat(document.getElementById("pickup").value);
     let dropoff = parseFloat(document.getElementById("dropoff").value);
-
-    let baseFare = 50;
-    let perKMrate = 15;
-    let baseKM = 2;
 
     if (isNaN(pickup) || isNaN(dropoff)) {
         document.getElementById("fareDisplay").innerHTML = "Enter valid stations";
         return;
     }
 
-    let distance = Math.abs(dropoff - pickup);
-    let extraKM = Math.max(distance - baseKM, 0);
-    let fare = baseFare + extraKM * perKMrate;
-
+    let fare = computeFare(pickup, dropoff);
     document.getElementById("fareDisplay").innerHTML = fare.toFixed(2);
 }
 
@@ -231,21 +221,12 @@ function calculateDiscount(){
     let pickup = parseFloat(document.getElementById("pickup").value);
     let dropoff = parseFloat(document.getElementById("dropoff").value);
 
-    let baseFare = 50;
-    let perKMrate = 15;
-    let baseKM = 2;
-
     if (isNaN(pickup) || isNaN(dropoff)) {
         document.getElementById("fareDisplay").innerHTML = "Enter valid stations";
         return;
     }
 
-    let distance = Math.abs(dropoff - pickup);
-    let extraKM = Math.max(distance - baseKM, 0);
-    let fare = baseFare + extraKM * perKMrate;
-
-    fare = fare * 0.80; // 20% discount
-
+    let fare = computeFare(pickup, dropoff) * 0.80;
     document.getElementById("fareDisplay").innerHTML = fare.toFixed(2);
 }
 </script>

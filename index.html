@@ -59,8 +59,8 @@ body{
     border: none;
 }
 
-input{
-    border-radius: 10px ;
+input, select{
+    border-radius: 10px;
 }
 
 footer{
@@ -103,7 +103,7 @@ footer{
 
             <div class="ms-auto">
                 <a class="btn btn-outline-light btn-sm me-2">Book Now</a>
-                <a nav-link href=page2.html class="btn btn-primary btn-sm">Create Account</a>
+                <a class="btn btn-primary btn-sm">Create Account</a>
             </div>
 
         </div>
@@ -125,12 +125,58 @@ footer{
 
                 <div class="mb-3">
                     <label class="form-label fw-bold fs-5">PICK-UP LOCATION:</label>
-                    <input type="number" id="pickup" class="form-control" placeholder="Enter station number">
+                    <select id="pickup" class="form-select">
+                        <option value="">Select Station</option>
+                        <option value="0">North Ave.</option>
+                        <option value="3.7">Roosevelt</option>
+                        <option value="6.7">Balintawak</option>
+                        <option value="7.7">Monumento</option>
+                        <option value="9.6">5th Avenue</option>
+                        <option value="10.2">R. Papa</option>
+                        <option value="15">Abad Santos</option>
+                        <option value="15.3">Blumentritt</option>
+                        <option value="15.8">Tayuman</option>
+                        <option value="16.1">Bambang</option>
+                        <option value="16.3">Doroteo Jose</option>
+                        <option value="17.5">Carriedo</option>
+                        <option value="18.6">Central Terminal</option>
+                        <option value="19.8">United Nations</option>
+                        <option value="20.3">Pedro Gil</option>
+                        <option value="20.8">Quirino</option>
+                        <option value="21">Vito Cruz</option>
+                        <option value="22.4">Gil Puyat</option>
+                        <option value="23.1">Libertad</option>
+                        <option value="24.2">EDSA</option>
+                        <option value="25">Baclaran</option>
+                    </select>
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label fw-bold fs-5">DROP-OFF LOCATION:</label>
-                    <input type="number" id="dropoff" class="form-control" placeholder="Enter station number">
+                    <select id="dropoff" class="form-select">
+                        <option value="">Select Station</option>
+                        <option value="0">North Ave.</option>
+                        <option value="3.7">Roosevelt</option>
+                        <option value="6.7">Balintawak</option>
+                        <option value="7.7">Monumento</option>
+                        <option value="9.6">5th Avenue</option>
+                        <option value="10.2">R. Papa</option>
+                        <option value="15">Abad Santos</option>
+                        <option value="15.3">Blumentritt</option>
+                        <option value="15.8">Tayuman</option>
+                        <option value="16.1">Bambang</option>
+                        <option value="16.3">Doroteo Jose</option>
+                        <option value="17.5">Carriedo</option>
+                        <option value="18.6">Central Terminal</option>
+                        <option value="19.8">United Nations</option>
+                        <option value="20.3">Pedro Gil</option>
+                        <option value="20.8">Quirino</option>
+                        <option value="21">Vito Cruz</option>
+                        <option value="22.4">Gil Puyat</option>
+                        <option value="23.1">Libertad</option>
+                        <option value="24.2">EDSA</option>
+                        <option value="25">Baclaran</option>
+                    </select>
                 </div>
 
                 <button class="btn btn-yellow me-2" onclick="calculateFare()">
@@ -155,6 +201,7 @@ footer{
     </div>
 </div>
 
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br><br></br>
 <footer class="text-center text-white">
     Erin Rioflorido, Erin Urbano and Maryonne Valera | 9 Jade ©2026
 </footer>
@@ -169,11 +216,11 @@ function calculateFare(){
     let baseKM = 2;
 
     if (isNaN(pickup) || isNaN(dropoff)) {
-        document.getElementById("fareDisplay").innerHTML = "Enter valid numbers";
+        document.getElementById("fareDisplay").innerHTML = "Enter valid stations";
         return;
     }
 
-    let distance = Math.max(Math.abs(dropoff - pickup), 0);
+    let distance = Math.abs(dropoff - pickup);
     let extraKM = Math.max(distance - baseKM, 0);
     let fare = baseFare + extraKM * perKMrate;
 
@@ -189,15 +236,15 @@ function calculateDiscount(){
     let baseKM = 2;
 
     if (isNaN(pickup) || isNaN(dropoff)) {
-        document.getElementById("fareDisplay").innerHTML = "Enter valid numbers";
+        document.getElementById("fareDisplay").innerHTML = "Enter valid stations";
         return;
     }
 
-    let distance = Math.max(Math.abs(dropoff - pickup), 0);
+    let distance = Math.abs(dropoff - pickup);
     let extraKM = Math.max(distance - baseKM, 0);
     let fare = baseFare + extraKM * perKMrate;
 
-    fare = fare * 0.80; 
+    fare = fare * 0.80; // 20% discount
 
     document.getElementById("fareDisplay").innerHTML = fare.toFixed(2);
 }
